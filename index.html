@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Landscape 2025 - Strategic Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 40px 0;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+
+        .tab-button.active {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .framework-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .framework-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .framework-subtitle {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .framework-items {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .framework-items.expanded {
+            display: block;
+        }
+
+        .framework-item {
+            background: #f8f9ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .category-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tool-tag {
+            background: #e8ecff;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .calculator-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .calculator-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .calc-input-group {
+            margin-bottom: 20px;
+        }
+
+        .calc-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .calc-input, .calc-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .calc-input:focus, .calc-select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .calc-results {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px 0;
+            border-bottom: 1px solid #e1e5e9;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .success-patterns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .pattern-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .pattern-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .pattern-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .pattern-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>AI Agent Landscape 2025</h1>
+            <p>Your Strategic Guide to Understanding, Selecting, and Implementing AI Agents</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">MACE</div>
+                    <div class="stat-label">Strategic Framework</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Agent Categories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Tools Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">ROI</div>
+                    <div class="stat-label">Calculator Included</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('mace')">MACE Framework</button>
+            <button class="tab-button" onclick="showTab('categories')">Categories</button>
+            <button class="tab-button" onclick="showTab('calculator')">ROI Calculator</button>
+            <button class="tab-button" onclick="showTab('patterns')">Success Patterns</button>
+            <button class="tab-button" onclick="showTab('contact')">Contact</button>
+        </div>
+
+        <!-- MACE Framework Tab -->
+        <div id="mace" class="tab-content active">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">The MACE Framework</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 40px;">A systematic approach to evaluating AI agents across four critical dimensions</p>
+
+            <div class="framework-grid">
+                <div class="framework-card" onclick="toggleFramework('modality')">
+                    <div class="framework-title">🎯 Modality</div>
+                    <div class="framework-subtitle">Primary interaction mode</div>
+                    <div id="modality" class="framework-items">
+                        <div class="framework-item"><strong>Text Agents:</strong> ChatGPT, Claude, Gemini</div>
+                        <div class="framework-item"><strong>Coding Agents:</strong> Cursor, GitHub Copilot</div>
+                        <div class="framework-item"><strong>Workflow Agents:</strong> Zapier, Make</div>
+                        <div class="framework-item"><strong>Research Agents:</strong> Perplexity, Deep Research</div>
+                        <div class="framework-item"><strong>Multimodal Agents:</strong> Advanced AI systems</div>
+                    </div>
+                </div>
+
+                <div class="framework-card" onclick="toggleFramework('autonomy')">
+                    <div class="framework-title">🤖 Autonomy</div>
+                    <div class="framework-subtitle">Decision-making independence</div>
+                    <div id="autonomy" class="framework-items">
+                        <div class="framework-item"><strong>Reactive:</strong> Responds to individual prompts</div>
+                        <div class="framework-item"><strong>Interactive:</strong> Multi-turn with human guidance</div>
+                        <div class="framework-item"><strong>Semi-Autonomous:</strong> Plans with checkpoints</div>
+                        <div class="framework-item"><strong>Fully Autonomous:</strong> End-to-end execution</div>
+                    </div>
+                </div>
+
+                <div class="framework-card" onclick="toggleFramework('complexity')">
+                    <div class="framework-title">⚙️ Complexity</div>
+                    <div class="framework-subtitle">Task handling capability</div>
+                    <div id="complexity" class="framework-items">
+                        <div class="framework-item"><strong>Simple Tasks:</strong> Step-by-step execution</div>
+                        <div class="framework-item"><strong>Sequential Multi-step:</strong> Linear workflow progression</div>
+                        <div class="framework-item"><strong>Branching:</strong> Conditional logic handling</div>
+                        <div class="framework-item"><strong>Dynamic Replanning:</strong> Adaptive strategy adjustment</div>
+                    </div>
+                </div>
+
+                <div class="framework-card" onclick="toggleFramework('environment')">
+                    <div class="framework-title">🌐 Environment</div>
+                    <div class="framework-subtitle">Execution context</div>
+                    <div id="environment" class="framework-items">
+                        <div class="framework-item"><strong>Cloud Contained:</strong> Provider sandbox</div>
+                        <div class="framework-item"><strong>IDE Integrated:</strong> Development environment</div>
+                        <div class="framework-item"><strong>Platform Hosted:</strong> Dedicated runtime</div>
+                        <div class="framework-item"><strong>Infrastructure Spanning:</strong> External system access</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Tab -->
+        <div id="categories" class="tab-content">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">Six Practical AI Agent Categories</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 40px;">Understanding the current landscape of AI agent applications</p>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">💬</div>
+                        <div class="category-title">Conversational Generators</div>
+                    </div>
+                    <div class="category-description">High-quality text generation and analysis</div>
+                    <div class="tool-list">
+                        <span class="tool-tag">ChatGPT</span>
+                        <span class="tool-tag">Claude</span>
+                        <span class="tool-tag">Gemini</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">💻</div>
+                        <div class="category-title">Coding Assistants</div>
+                    </div>
+                    <div class="category-description">Development workflow enhancement</div>
+                    <div class="tool-list">
+                        <span class="tool-tag">Cursor</span>
+                        <span class="tool-tag">GitHub Copilot</span>
+                        <span class="tool-tag">Claude Code</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🔗</div>
+                        <div class="category-title">Workflow Orchestrators</div>
+                    </div>
+                    <div class="category-description">Process automation and integration</div>
+                    <div class="tool-list">
+                        <span class="tool-tag">Zapier</span>
+                        <span class="tool-tag">Make</span>
+                        <span class="tool-tag">n8n</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🔍</div>
+                        <div class="category-title">Research Synthesizers</div>
+                    </div>
+                    <div class="category-description">Information analysis and synthesis</div>
+                    <div class="tool-list">
+                        <span class="tool-tag">Perplexity</span>
+                        <span class="tool-tag">Deep Research</span>
+                        <span class="tool-tag">Claude Research</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🚀</div>
+                        <div class="category-title">Autonomous Executors</div>
+                    </div>
+                    <div class="category-description">End-to-end task completion</div>
+                    <div class="tool-list">
+                        <span class="tool-tag">Manus</span>
+                        <span class="tool-tag">Devon</span>
+                        <span class="tool-tag">Custom Agents</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">🤝</div>
+                        <div class="category-title">Hybrid Collaborators</div>
+                    </div>
+                    <div class="category-description">Human-AI partnership</div>
+                    <div class="tool-list">
+                        <span class="tool-tag">Cursor Composer</span>
+                        <span class="tool-tag">Custom Workflows</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROI Calculator Tab -->
+        <div id="calculator" class="tab-content">
+            <div class="calculator-section">
+                <h2 class="calculator-title">AI Agent ROI Calculator</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 40px;">Calculate potential savings and implementation timeline</p>
+
+                <div class="calc-grid">
+                    <div>
+                        <h3 style="margin-bottom: 20px; color: #333;">Current Manual Process</h3>
+
+                        <div class="calc-input-group">
+                            <label class="calc-label">Task Type</label>
+                            <select class="calc-select" id="taskType" onchange="updateCalculations()">
+                                <option value="research">Research & Analysis</option>
+                                <option value="content">Content Creation</option>
+                                <option value="data">Data Analysis</option>
+                                <option value="process">Process Documentation</option>
+                                <option value="technical">Technical Proof of Concept</option>
+                            </select>
+                        </div>
+
+                        <div class="calc-input-group">
+                            <label class="calc-label">Hours per task</label>
+                            <input type="number" class="calc-input" id="hoursPerTask" value="20" min="1" max="200" onchange="updateCalculations()">
+                        </div>
+
+                        <div class="calc-input-group">
+                            <label class="calc-label">Tasks per month</label>
+                            <input type="number" class="calc-input" id="tasksPerMonth" value="4" min="1" max="100" onchange="updateCalculations()">
+                        </div>
+
+                        <div class="calc-input-group">
+                            <label class="calc-label">Hourly rate ($)</label>
+                            <input type="number" class="calc-input" id="hourlyRate" value="100" min="25" max="500" onchange="updateCalculations()">
+                        </div>
+                    </div>
+
+                    <div class="calc-results">
+                        <h3 style="margin-bottom: 20px; color: #333;">AI Agent Alternative</h3>
+
+                        <div class="result-item">
+                            <span class="result-label">Current Monthly Cost:</span>
+                            <span class="result-value" id="currentCost">$8,000</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">AI Agent Monthly Cost:</span>
+                            <span class="result-value" id="aiCost">$800</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Monthly Savings:</span>
+                            <span class="result-value" id="monthlySavings">$7,200</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Annual Savings:</span>
+                            <span class="result-value" id="annualSavings">$86,400</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">Time Saved (hours/month):</span>
+                            <span class="result-value" id="timeSaved">72</span>
+                        </div>
+
+                        <div class="result-item">
+                            <span class="result-label">ROI:</span>
+                            <span class="result-value" id="roi">900%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Patterns Tab -->
+        <div id="patterns" class="tab-content">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">Success Patterns for AI Agent Implementation</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 40px;">Key indicators for successful AI agent adoption</p>
+
+            <div class="success-patterns">
+                <div class="pattern-item">
+                    <div class="pattern-icon">💰</div>
+                    <div class="pattern-title">Economic Justification</div>
+                    <div class="pattern-description">Tasks worth $500-$5,000 manually achieve 10x cost savings</div>
+                </div>
+
+                <div class="pattern-item">
+                    <div class="pattern-icon">⏱️</div>
+                    <div class="pattern-title">Time Savings</div>
+                    <div class="pattern-description">From days to hours - 80% time reduction</div>
+                </div>
+
+                <div class="pattern-item">
+                    <div class="pattern-icon">⚙️</div>
+                    <div class="pattern-title">Complex Workflows</div>
+                    <div class="pattern-description">Multi-domain tasks with 5-25 distinct actions</div>
+                </div>
+
+                <div class="pattern-item">
+                    <div class="pattern-icon">✅</div>
+                    <div class="pattern-title">Quality Expectation</div>
+                    <div class="pattern-description">Excellent first draft - 90% ready to use</div>
+                </div>
+
+                <div class="pattern-item">
+                    <div class="pattern-icon">🎯</div>
+                    <div class="pattern-title">Clear Deliverables</div>
+                    <div class="pattern-description">Well-defined outcomes - 100% specified results</div>
+                </div>
+
+                <div class="pattern-item">
+                    <div class="pattern-icon">👥</div>
+                    <div class="pattern-title">Human Review</div>
+                    <div class="pattern-description">Expected refinement - Always included</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                <h3 style="color: #333; margin-bottom: 20px;">The Future: Specialist vs General Tools</h3>
+                <p style="color: #666; margin-bottom: 20px;">AI agents are evolving into two distinct categories, each serving different market needs:</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                    <div style="padding: 20px; background: #f8f9ff; border-radius: 10px;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">🔬 Specialist Tools</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Surgical precision for complex, high-value tasks. $500-$5,000 task value. Multi-domain workflows. Autonomous execution. Variable, premium pricing.</p>
+                    </div>
+
+                    <div style="padding: 20px; background: #fff8f0; border-radius: 10px;">
+                        <h4 style="color: #f6ad55; margin-bottom: 15px;">🛠️ General Productivity Apps</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Swiss Army knife for everyday tasks. $20-$200 task value. Single-domain focus. Interactive collaboration. Predictable subscription.</p>
+                    </div>
+                </div>
+
+                <p style="color: #666; margin-top: 30px; text-align: center; font-style: italic;">
+                    Prediction: Major AI companies will launch Manus-like products within 6 months.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="contact-section">
+                <h2 class="contact-title">Ready to Transform Your Operations?</h2>
+                <div class="contact-description">
+                    Go Moonshot Consulting specializes in AI-driven talent acquisition and strategic technology implementation. 
+                    We help organizations navigate the AI agent landscape and implement solutions that deliver measurable ROI.
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 style="color: #333; margin-bottom: 20px;">Our Services</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
+                        <div style="padding: 20px; background: #f8f9ff; border-radius: 10px;">
+                            <h4 style="color: #667eea;">AI Strategy Consulting</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Strategic roadmaps for AI implementation</p>
+                        </div>
+                        <div style="padding: 20px; background: #f8f9ff; border-radius: 10px;">
+                            <h4 style="color: #667eea;">Talent Acquisition</h4>
+                            <p style="font-size: 0.9rem; color: #666;">AI-powered recruitment solutions</p>
+                        </div>
+                        <div style="padding: 20px; background: #f8f9ff; border-radius: 10px;">
+                            <h4 style="color: #667eea;">Federal Contracting</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Government sector expertise</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <a href="mailto:hello@gomoonshot.com" class="cta-button">Get Started Today</a>
+                </div>
+
+                <div style="margin-top: 30px; color: #666;">
+                    <p><strong>Go Moonshot Consulting</strong></p>
+                    <p>AI-Driven Talent Acquisition & Strategic Technology Solutions</p>
+                    <p>Visit us at: <a href="https://gomoonshot.com" style="color: #667eea;">gomoonshot.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Framework card expansion
+        function toggleFramework(frameworkId) {
+            const framework = document.getElementById(frameworkId);
+            framework.classList.toggle('expanded');
+        }
+
+        // ROI Calculator functionality
+        function updateCalculations() {
+            const hoursPerTask = parseFloat(document.getElementById('hoursPerTask').value) || 20;
+            const tasksPerMonth = parseFloat(document.getElementById('tasksPerMonth').value) || 4;
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 100;
+
+            // Current cost calculation
+            const currentMonthlyCost = hoursPerTask * tasksPerMonth * hourlyRate;
+
+            // AI agent cost (typically 10% of manual cost)
+            const aiMonthlyCost = currentMonthlyCost * 0.1;
+
+            // Savings calculation
+            const monthlySavings = currentMonthlyCost - aiMonthlyCost;
+            const annualSavings = monthlySavings * 12;
+
+            // Time saved (assuming 90% time reduction)
+            const timeSaved = hoursPerTask * tasksPerMonth * 0.9;
+
+            // ROI calculation
+            const roi = ((monthlySavings / aiMonthlyCost) * 100).toFixed(0);
+
+            // Update display
+            document.getElementById('currentCost').textContent = '$' + currentMonthlyCost.toLocaleString();
+            document.getElementById('aiCost').textContent = '$' + aiMonthlyCost.toLocaleString();
+            document.getElementById('monthlySavings').textContent = '$' + monthlySavings.toLocaleString();
+            document.getElementById('annualSavings').textContent = '$' + annualSavings.toLocaleString();
+            document.getElementById('timeSaved').textContent = Math.round(timeSaved) + ' hours';
+            document.getElementById('roi').textContent = roi + '%';
+        }
+
+        // Initialize calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCalculations();
+        });
+
+        // Smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const style = document.createElement('style');
+            style.textContent = `
+                html {
+                    scroll-behavior: smooth;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
